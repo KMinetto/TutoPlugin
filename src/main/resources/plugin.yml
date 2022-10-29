@@ -2,3 +2,10 @@ name: TutoPlugin
 version: '${version}'
 main: fr.leskhalys.tutoplugin.Main
 api-version: 1.16
+commands:
+  hello:
+    description: "Say hello"
+    permission: "hello.use"
+  goodbye:
+    description: "Say goodbye"
+    permission: "goodbye.use"
