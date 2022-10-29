@@ -1,0 +1,4 @@
+name: TutoPlugin
+version: '${version}'
+main: fr.leskhalys.tutoplugin.Main
+api-version: 1.16
