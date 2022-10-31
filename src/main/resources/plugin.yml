@@ -16,3 +16,6 @@ commands:
   heal:
     description: "Heal the player"
     permission: "heal.use"
+  godboots:
+    description: "give gods boots"
+    "permission": "godboots.use"
