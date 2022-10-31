@@ -38,9 +38,6 @@ public abstract class GeneralCommand implements CommandExecutor {
         return command.getName().equalsIgnoreCase(name);
     }
 
-    public Main getMain() {
-        return main;
-    }
-
-    public String getName() { return name; }
+    protected abstract void commandWithNoArgument(Player player);
+    protected abstract void commandWithArguments(String[] args, Player player);
 }

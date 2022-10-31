@@ -9,3 +9,7 @@ commands:
   goodbye:
     description: "Say goodbye"
     permission: "goodbye.use"
+  launch:
+    description: "Jump the player very high"
+  fly:
+    description: "Allow fly mod"
