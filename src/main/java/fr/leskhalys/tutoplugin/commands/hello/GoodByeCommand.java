@@ -20,7 +20,11 @@ public class GoodByeCommand extends GeneralCommand {
             if (isPlayer(sender)) {
                 Player player = (Player) sender;
                 if (isPlayerOp(player) || hasPermission(player)) {
-                    player.sendMessage(Messages.SEND_GOODBYE.getMessage());
+                    if (args.length == 0) {
+                        commandWithNoArgument(player);
+                    } else {
+                        player.sendMessage(Messages.TOO_FEW_ARGUMENTS.getMessage());
+                    }
                 } else {
                     player.sendMessage(Messages.PLAYER_NOT_OP.getMessage());
                 }
@@ -30,5 +34,15 @@ public class GoodByeCommand extends GeneralCommand {
             return true;
         }
         return false;
+    }
+
+    @Override
+    protected void commandWithNoArgument(Player player) {
+        player.sendMessage(Messages.SEND_GOODBYE.getMessage());
+    }
+
+    @Override
+    protected void commandWithArguments(String[] args, Player player) {
+
     }
 }

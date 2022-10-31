@@ -1,4 +1,4 @@
-package fr.leskhalys.tutoplugin.commands.hello;
+package fr.leskhalys.tutoplugin.commands.fly;
 
 import fr.leskhalys.tutoplugin.Main;
 import fr.leskhalys.tutoplugin.commands.GeneralCommand;
@@ -8,18 +8,18 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class HelloCommand extends GeneralCommand {
+public class FlyCommand extends GeneralCommand {
 
-    public HelloCommand(Main main, String permission) {
-        super(main, "hello", permission);
+    public FlyCommand(Main main, String permission) {
+        super(main, "fly", permission);
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (isCorrectName(command, this.name)) {
             if (isPlayer(sender)) {
-                final Player player = (Player) sender;
-                if (hasPermission(player) || isPlayerOp(player)) {
+                Player player = (Player) sender;
+                if (isPlayerOp(player) || hasPermission(player)) {
                     if (args.length == 0) {
                         commandWithNoArgument(player);
                     } else {
@@ -31,14 +31,19 @@ public class HelloCommand extends GeneralCommand {
             } else {
                 sender.sendMessage(Messages.NOT_A_PLAYER.getMessage());
             }
-            return true;
         }
         return false;
     }
 
     @Override
     protected void commandWithNoArgument(Player player) {
-        player.sendMessage(Messages.SEND_HELLO.getMessage());
+        if (!player.getAllowFlight()) {
+            player.setAllowFlight(true);
+            player.sendMessage(ChatColor.DARK_GREEN + "Fly mod is now " + ChatColor.GOLD + "active.");
+        } else {
+            player.setAllowFlight(false);
+            player.sendMessage(ChatColor.DARK_GREEN + "Fly mod is now " + ChatColor.GOLD + "inactive.");
+        }
     }
 
     @Override
