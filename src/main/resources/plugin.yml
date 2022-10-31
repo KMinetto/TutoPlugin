@@ -13,3 +13,6 @@ commands:
     description: "Jump the player very high"
   fly:
     description: "Allow fly mod"
+  heal:
+    description: "Heal the player"
+    permission: "heal.use"

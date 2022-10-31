@@ -1,6 +1,7 @@
 package fr.leskhalys.tutoplugin;
 
 import fr.leskhalys.tutoplugin.commands.fly.FlyCommand;
+import fr.leskhalys.tutoplugin.commands.heal.HealCommand;
 import fr.leskhalys.tutoplugin.commands.hello.GoodByeCommand;
 import fr.leskhalys.tutoplugin.commands.hello.HelloCommand;
 import fr.leskhalys.tutoplugin.commands.launch.LaunchCommand;
@@ -19,6 +20,7 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("goodbye")).setExecutor(new GoodByeCommand(this, "goodbye.use"));
         Objects.requireNonNull(getCommand("launch")).setExecutor(new LaunchCommand(this, ""));
         Objects.requireNonNull(getCommand("fly")).setExecutor(new FlyCommand(this, "fly.use"));
+        Objects.requireNonNull(getCommand("heal")).setExecutor(new HealCommand(this, "heal.use"));
     }
 
     @Override
