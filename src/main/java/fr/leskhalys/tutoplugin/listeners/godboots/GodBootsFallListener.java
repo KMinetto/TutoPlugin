@@ -1,4 +1,4 @@
-package fr.leskhalys.tutoplugin.eventlisteners.godboots;
+package fr.leskhalys.tutoplugin.listeners.godboots;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

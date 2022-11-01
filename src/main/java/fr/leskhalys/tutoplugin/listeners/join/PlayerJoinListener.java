@@ -1,4 +1,4 @@
-package fr.leskhalys.tutoplugin.eventlisteners.join;
+package fr.leskhalys.tutoplugin.listeners.join;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
