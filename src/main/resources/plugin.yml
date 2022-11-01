@@ -17,5 +17,8 @@ commands:
     description: "Heal the player"
     permission: "heal.use"
   godboots:
-    description: "give gods boots"
+    description: "Give gods boots"
     "permission": "godboots.use"
+  startool:
+    description: "Give star tool"
+    "permission": "startool.use"

@@ -6,10 +6,11 @@ import fr.leskhalys.tutoplugin.commands.heal.HealCommand;
 import fr.leskhalys.tutoplugin.commands.hello.GoodByeCommand;
 import fr.leskhalys.tutoplugin.commands.hello.HelloCommand;
 import fr.leskhalys.tutoplugin.commands.launch.LaunchCommand;
-import fr.leskhalys.tutoplugin.eventlisteners.godboots.GodBootsFallListener;
-import fr.leskhalys.tutoplugin.eventlisteners.godboots.GodBootsListeners;
-import fr.leskhalys.tutoplugin.eventlisteners.join.PlayerJoinListener;
-import org.bukkit.Bukkit;
+import fr.leskhalys.tutoplugin.commands.startool.StarToolCommand;
+import fr.leskhalys.tutoplugin.listeners.godboots.GodBootsFallListener;
+import fr.leskhalys.tutoplugin.listeners.godboots.GodBootsListeners;
+import fr.leskhalys.tutoplugin.listeners.join.PlayerJoinListener;
+import fr.leskhalys.tutoplugin.listeners.startool.StarToolListener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,9 +25,13 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         System.out.println("Plugin " + PLUGIN_NAME + " enabled.");
 
+        // Join Event
         PLUGIN_MANAGER.registerEvents(new PlayerJoinListener(), this);
+        // God Boots Events
         PLUGIN_MANAGER.registerEvents(new GodBootsListeners(), this);
         PLUGIN_MANAGER.registerEvents(new GodBootsFallListener(), this);
+        // Star Tool Events
+        PLUGIN_MANAGER.registerEvents(new StarToolListener(), this);
 
         Objects.requireNonNull(getCommand("hello")).setExecutor(new HelloCommand(this, "hello.use"));
         Objects.requireNonNull(getCommand("goodbye")).setExecutor(new GoodByeCommand(this, "goodbye.use"));
@@ -35,6 +40,9 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(getCommand("heal")).setExecutor(new HealCommand(this, "heal.use"));
         Objects.requireNonNull(
             getCommand("godboots")).setExecutor(new GodBootsCommand(this, "godboots.use")
+        );
+        Objects.requireNonNull(
+            getCommand("startool")).setExecutor(new StarToolCommand(this, "startool.use")
         );
     }
 
