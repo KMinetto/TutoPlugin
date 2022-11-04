@@ -22,3 +22,6 @@ commands:
   startool:
     description: "Give star tool"
     "permission": "startool.use"
+  changeteam:
+    description: "Display GUI to change team"
+    "permission": "changeteam.use"
