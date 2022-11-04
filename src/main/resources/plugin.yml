@@ -18,10 +18,13 @@ commands:
     permission: "heal.use"
   godboots:
     description: "Give gods boots"
-    "permission": "godboots.use"
+    permission: "godboots.use"
   startool:
     description: "Give star tool"
     "permission": "startool.use"
   changeteam:
     description: "Display GUI to change team"
-    "permission": "changeteam.use"
+    permission: "changeteam.use"
+  gamble:
+    description: "Spining gui and give item"
+    permission: "gamble.use"

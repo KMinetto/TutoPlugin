@@ -2,12 +2,14 @@ package fr.leskhalys.tutoplugin;
 
 import fr.leskhalys.tutoplugin.commands.changeteam.ChangeTeamCommand;
 import fr.leskhalys.tutoplugin.commands.fly.FlyCommand;
+import fr.leskhalys.tutoplugin.commands.gamble.GambleCommand;
 import fr.leskhalys.tutoplugin.commands.godboots.GodBootsCommand;
 import fr.leskhalys.tutoplugin.commands.heal.HealCommand;
 import fr.leskhalys.tutoplugin.commands.hello.GoodByeCommand;
 import fr.leskhalys.tutoplugin.commands.hello.HelloCommand;
 import fr.leskhalys.tutoplugin.commands.launch.LaunchCommand;
 import fr.leskhalys.tutoplugin.commands.startool.StarToolCommand;
+import fr.leskhalys.tutoplugin.listeners.gamble.GambleListener;
 import fr.leskhalys.tutoplugin.listeners.godboots.GodBootsFallListener;
 import fr.leskhalys.tutoplugin.listeners.godboots.GodBootsListeners;
 import fr.leskhalys.tutoplugin.listeners.gui.ChangeTeamListener;
@@ -36,6 +38,7 @@ public final class Main extends JavaPlugin {
         PLUGIN_MANAGER.registerEvents(new StarToolListener(), this);
         // GUI
         PLUGIN_MANAGER.registerEvents(new ChangeTeamListener(), this);
+        PLUGIN_MANAGER.registerEvents(new GambleListener(), this);
 
         Objects.requireNonNull(getCommand("hello")).setExecutor(new HelloCommand(this, "hello.use"));
         Objects.requireNonNull(getCommand("goodbye")).setExecutor(new GoodByeCommand(this, "goodbye.use"));
@@ -48,7 +51,8 @@ public final class Main extends JavaPlugin {
         Objects.requireNonNull(
             getCommand("startool")).setExecutor(new StarToolCommand(this, "startool.use")
         );
-        getCommand("changeteam").setExecutor(new ChangeTeamCommand(this, "changeteam.use"));
+        Objects.requireNonNull(getCommand("changeteam")).setExecutor(new ChangeTeamCommand(this, "changeteam.use"));
+        Objects.requireNonNull(getCommand("gamble")).setExecutor(new GambleCommand(this, "gamble.use"));
     }
 
     @Override
